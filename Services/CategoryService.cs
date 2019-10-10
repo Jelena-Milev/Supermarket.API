@@ -1,4 +1,5 @@
 ﻿using Supermarket.API.Domain.Models;
+using Supermarket.API.Domain.Respositories;
 using Supermarket.API.Domain.Service;
 using System;
 using System.Collections.Generic;
@@ -9,9 +10,16 @@ namespace Supermarket.API.Services
 {
     public class CategoryService : ICategoryService
     {
-        public Task<IEnumerable<Category>> ListAsync()
+        private readonly ICategoryRepository _categoryRepository;
+
+        CategoryService(ICategoryRepository categoryRepository)
         {
-            return null;
+            _categoryRepository = categoryRepository;
+        }
+
+        public async Task<IEnumerable<Category>> ListAsync()
+        {
+            return await _categoryRepository.ListAsync();
         }
     }
 }
