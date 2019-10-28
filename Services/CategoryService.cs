@@ -12,7 +12,7 @@ namespace Supermarket.API.Services
     {
         private readonly ICategoryRepository _categoryRepository;
 
-        CategoryService(ICategoryRepository categoryRepository)
+        public CategoryService(ICategoryRepository categoryRepository)
         {
             _categoryRepository = categoryRepository;
         }
